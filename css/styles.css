@@ -1,0 +1,262 @@
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+        }
+
+        /* 🔹 Bagian Navigasi di paling atas */
+        nav {
+            background-color: #222;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ff9800;
+        }
+
+        /* 🔹 Baris bawah: Judul + Search Bar */
+        .header-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-bar input[type="search"] {
+            padding: 7px 10px;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .search-bar button {
+            padding: 7px 15px;
+            border: none;
+            border-radius: 3px;
+            background-color: #ff9800;
+            color: white;
+            cursor: pointer;
+            
+        }
+
+        .search-bar button:hover {
+            background-color: #e68900;
+        }
+        .sign-in {
+            padding: 7px 15px;
+            border: none;
+            border-radius: 3px;
+            background-color: #222;
+            color: white;
+            cursor: pointer;
+        }
+        .sign-up {
+            padding: 7px 12px;
+            border: none;
+            border-radius: 3px;
+            background-color: #222;
+            color: white;
+            cursor: pointer;
+        }
+        .divider {
+            display: inline-block;
+            width: 1px;
+            height: 15px;
+            background-color: white;
+            margin: 0px;
+        }
+        .sign-button :hover {
+            color: blue;
+        }
+        .card-container {
+            display: flex;
+            flex-direction: row; /* Susun ke arah horizontal */
+            gap: 15px;
+            overflow-x: auto; /* Biar bisa digeser kalau jumlah card-nya banyak */
+            padding: 10px;
+            scrollbar-width: none; /* Hilangkan scrollbar (opsional) */
+        }
+
+        .card-container::-webkit-scrollbar {
+            display: none; /* Hilangkan scrollbar di Chrome/Safari */
+        }
+
+        .card {
+            position: relative;
+            width: 250px;
+            height: 180px;
+            overflow: hidden;
+            border-radius: 15px;
+            flex-shrink: 0; /* Biar ukurannya tetap, tidak mengecil */
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-title {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+            margin: 0;
+        }
+        .equipment-card-container {
+            display: flex;
+            flex-wrap: wrap; /* biar bisa pindah ke baris baru kalau layar kecil */
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+            .equipment-card {
+            width: 90px;
+            height: 100px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+
+            .equipment-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+            .equipment-card img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-bottom: 6px;
+        }
+
+            .equipment-card p {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+        
+        /* 🔹 Popup Modal Styling */
+        .order-modal {
+        display: none; /* tersembunyi dulu */
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.6);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        }
+
+        .order-content {
+        background: #fff;
+        padding: 20px 25px;
+        border-radius: 12px;
+        width: 320px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        text-align: left;
+        position: relative;
+        animation: fadeIn 0.3s ease;
+        }
+
+        .order-content h2 {
+        margin-top: 0;
+        text-align: center;
+        }
+
+        .order-content label {
+        display: block;
+        font-weight: bold;
+        margin-top: 10px;
+        }
+
+        .order-content input, 
+        .order-content select {
+        width: 100%;
+        padding: 7px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+        }
+
+        .order-content button {
+        margin-top: 15px;
+        width: 100%;
+        background-color: #ff9800;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        }
+
+        .order-content button:hover {
+        background-color: #e68900;
+        }
+
+        .close-btn {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        font-size: 22px;
+        cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+        }
